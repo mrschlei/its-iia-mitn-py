@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y apache2 \
  && rm -rf /var/lib/apt/lists/*
 
 # all because of some error
-RUN mkdir /var/lib/apache2/module/enabled_by_admin
+#RUN mkdir /var/lib/apache2/module/enabled_by_admin
 #RUN mkdir /var/lib/apache2/site/enabled_by_admin
 #RUN chown root:root /var/lib/apache2/site/enabled_by_admin/default-ssl
 #RUN chmod g+rw /var/lib/apache2/site/enabled_by_admin/default-ssl
@@ -48,4 +48,3 @@ RUN chmod g+x /etc/ssl/private
 COPY start.sh /usr/local/bin
 RUN chmod 755 /usr/local/bin/start.sh
 CMD /usr/local/bin/start.sh
-

@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y apache2 \
  && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /var/lib/apache2/module/enabled_by_admin
+RUN touch /var/lib/apache2/site/enabled_by_admin/default-ssl
 COPY . /etc/apache2
 
 # Section that sets up Apache and Cosign to run as non-root user.

@@ -43,3 +43,5 @@ RUN a2enmod headers
 COPY start.sh /usr/local/bin
 RUN chmod 755 /usr/local/bin/start.sh
 CMD /usr/local/bin/start.sh
+
+CMD  /usr/sbin/apache2ctl -D FOREGROUND

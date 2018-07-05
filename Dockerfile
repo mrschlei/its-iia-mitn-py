@@ -23,7 +23,6 @@ EXPOSE 8443
 ### change directory owner, as openshift user is in root group.
 RUN chown -R root:root /etc/apache2 \
 	/etc/ssl/certs /etc/ssl/private \
-	/usr/local/etc/php /usr/local/lib/php \
 	/var/lib/apache2/module/enabled_by_admin \ 
 	/var/lib/apache2/site/enabled_by_admin \
 	/var/lock/apache2 /var/log/apache2 /var/run/apache2\
@@ -32,7 +31,6 @@ RUN chown -R root:root /etc/apache2 \
 ### Modify perms for the openshift user, who is not root, but part of root group.
 RUN chmod -R g+rw /etc/apache2 \
 	/etc/ssl/certs /etc/ssl/private \
-	/usr/local/etc/php /usr/local/lib/php \
 	/var/lib/apache2/module/enabled_by_admin \ 
 	/var/lib/apache2/site/enabled_by_admin \
 	/var/lock/apache2 /var/log/apache2 /var/run/apache2\

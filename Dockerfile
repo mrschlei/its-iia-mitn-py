@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y apache2 \
 
 # all because of some error
 RUN mkdir /var/lib/apache2/module/enabled_by_admin
+RUN mkdir /var/lib/apache2/site/enabled_by_admin
 #RUN chown root:root /var/lib/apache2/site/enabled_by_admin/default-ssl
 #RUN chmod g+rw /var/lib/apache2/site/enabled_by_admin/default-ssl
 #RUN rm /var/lib/apache2/site/enabled_by_admin/default-ssl
@@ -25,6 +26,7 @@ EXPOSE 8443
 RUN chown -R root:root /etc/apache2 \
 	/etc/ssl/certs /etc/ssl/private \
 	/var/lib/apache2/module/enabled_by_admin \
+	/var/lib/apache2/site/enabled_by_admin \
 	/var/lock/apache2 /var/log/apache2 /var/run/apache2 \
 	/var/www/html \
 	/usr/local/bin
@@ -33,6 +35,7 @@ RUN chown -R root:root /etc/apache2 \
 RUN chmod -R g+rw /etc/apache2 \
 	/etc/ssl/certs /etc/ssl/private \
 	/var/lib/apache2/module/enabled_by_admin \
+	/var/lib/apache2/site/enabled_by_admin \
 	/var/lock/apache2 /var/log/apache2 /var/run/apache2 \
 	/var/www/html \
 	/usr/local/bin

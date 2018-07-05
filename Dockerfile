@@ -11,15 +11,12 @@ RUN apt-get update && apt-get install -y apache2 \
  && apt-get autoremove \
  && rm -rf /var/lib/apt/lists/*
 
+RUN mkdir /var/lib/apache2/module/enabled_by_admin
 COPY . /etc/apache2
-
-
-
 
 # Section that sets up Apache and Cosign to run as non-root user.
 EXPOSE 8080
 EXPOSE 8443
-RUN mkdir /var/lib/apache2/module/enabled_by_admin
 ### change directory owner, as openshift user is in root group.
 RUN chown -R root:root /etc/apache2 \
 	/etc/ssl/certs /etc/ssl/private \

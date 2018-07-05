@@ -17,7 +17,9 @@ RUN mkdir /var/lib/apache2/module/enabled_by_admin
 #RUN chown root:root /var/lib/apache2/site/enabled_by_admin/default-ssl
 #RUN chmod g+rw /var/lib/apache2/site/enabled_by_admin/default-ssl
 #RUN rm /var/lib/apache2/site/enabled_by_admin/default-ssl
-COPY . /etc/apache2
+
+#COPY . /etc/apache2
+COPY test.py /var/www/html
 
 # Section that sets up Apache and Cosign to run as non-root user.
 EXPOSE 8080
@@ -45,5 +47,5 @@ RUN chmod g+x /etc/ssl/private
 #RUN apt-get install -y autoconf gzip libxml2-dev make
 COPY start.sh /usr/local/bin
 RUN chmod 755 /usr/local/bin/start.sh
-#CMD /usr/local/bin/start.sh
+CMD /usr/local/bin/start.sh
 

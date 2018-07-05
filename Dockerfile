@@ -1,4 +1,4 @@
 FROM python:2.7
 
-#COPY config/php.ini /usr/local/etc/php/
-COPY src/ /var/www/html/
+#reminder - add start.sh and secrets later
+COPY . /var/www/html/

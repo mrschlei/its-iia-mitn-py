@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y apache2 \
 
 # all because of some error
 RUN mkdir /var/lib/apache2/module/enabled_by_admin
-RUN mkdir /var/lib/apache2/site/enabled_by_admin
+#RUN mkdir /var/lib/apache2/site/enabled_by_admin	# already exists
 RUN chown root:root /var/lib/apache2/site/enabled_by_admin/default-ssl
 RUN chmod g+rw /var/lib/apache2/site/enabled_by_admin/default-ssl
 #RUN rm /var/lib/apache2/site/enabled_by_admin/default-ssl

@@ -21,11 +21,9 @@ ENV APACHE2=/usr/sbin/apache2
 
 # install PHP and Apache2 here
 RUN apt-get update \
-	&& apt-get install -y wget gcc make openssl \
-	libssl-dev apache2-dev autoconf
-
-#RUN apt-get install -y wget gcc make openssl \
-#		libssl-dev apache2-dev autoconf
+	&& apt-get install -y apache2-dev autoconf \
+	gcc gzip libssl-dev libxml2-devmake \
+	openssl wget 
 
 ##### Build Cosign #####
 RUN wget "$COSIGN_URL" \
@@ -43,13 +41,6 @@ RUN wget "$COSIGN_URL" \
 	&& chmod 777 /var/cosign/filter
 #####
 
-# all because of some error
-#RUN mkdir /var/lib/apache2/site/enabled_by_admin	# already exists
-#RUN chown root:root /var/lib/apache2/site/enabled_by_admin
-#RUN chmod g+rw /var/lib/apache2/site/enabled_by_admin
-#RUN rm /var/lib/apache2/site/enabled_by_admin/default-ssl
-
-#COPY . /etc/apache2
 COPY test.py /var/www/html
 
 # Section that sets up Apache and Cosign to run as non-root user.
@@ -76,7 +67,6 @@ RUN chmod -R g+rw /etc/apache2 \
 
 RUN chmod g+x /etc/ssl/private
 
-#RUN apt-get install -y autoconf gzip libxml2-dev make
 COPY start.sh /usr/local/bin
 RUN chmod 755 /usr/local/bin/start.sh
 CMD /usr/local/bin/start.sh

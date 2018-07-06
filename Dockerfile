@@ -25,7 +25,7 @@ ENV APACHE2=/usr/sbin/apache2
 #		libssl-dev=$OPENSSL_VERSION apache2-dev autoconf
 
 RUN apt-get install -y wget gcc make openssl \
-		libssl-dev=$OPENSSL_VERSION apache2-dev autoconf
+		libssl-dev apache2-dev autoconf
 
 ##### Build Cosign #####
 RUN wget "$COSIGN_URL" \

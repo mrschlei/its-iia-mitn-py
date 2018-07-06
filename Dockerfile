@@ -22,7 +22,7 @@ ENV APACHE2=/usr/sbin/apache2
 # install PHP and Apache2 here
 RUN apt-get update \
 	&& apt-get install -y apache2-dev autoconf \
-	gcc gzip libssl-dev libxml2-devmake \
+	gcc gzip libssl-dev \
 	openssl wget 
 
 ##### Build Cosign #####

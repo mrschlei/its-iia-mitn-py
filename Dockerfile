@@ -13,6 +13,7 @@ RUN pip install -r requirements.txt
 #USER www-data
 RUN chmod g+r -R wsgi.py ./welcome
 
+EXPOSE 8000
 EXPOSE 8080
 EXPOSE 8443
 

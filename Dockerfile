@@ -22,7 +22,7 @@ ENV APACHE2=/usr/sbin/apache2
 # install PHP and Apache2 here
 RUN apt-get update \
 	&& apt-get install -y wget gcc make openssl \
-		libssl-dev apache2-dev autoconf
+	libssl-dev apache2-dev autoconf
 
 #RUN apt-get install -y wget gcc make openssl \
 #		libssl-dev apache2-dev autoconf
@@ -55,6 +55,7 @@ COPY test.py /var/www/html
 # Section that sets up Apache and Cosign to run as non-root user.
 EXPOSE 8080
 EXPOSE 8443
+
 ### change directory owner, as openshift user is in root group.
 RUN chown -R root:root /etc/apache2 \
 	/etc/ssl/certs /etc/ssl/private \

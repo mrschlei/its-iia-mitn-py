@@ -26,9 +26,9 @@ a2enmod ssl
 a2enmod include
 a2ensite default-ssl 
 
-a2enmod expires
-a2enmod headers
-a2enmod rewrite 
+#a2enmod expires
+#a2enmod headers
+#a2enmod rewrite 
 
 #/usr/local/bin/apache2-foreground
 /usr/sbin/apachectl -f /etc/apache2/apache2.conf -k start

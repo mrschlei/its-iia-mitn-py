@@ -45,6 +45,6 @@ RUN chmod -R g+rw /etc/apache2 \
 RUN chmod g+x /etc/ssl/private
 
 #RUN apt-get install -y autoconf gzip libxml2-dev make
-COPY start.sh /usr/local/bin
-RUN chmod 755 /usr/local/bin/start.sh
-CMD /usr/local/bin/start.sh
+#COPY start.sh /usr/local/bin
+#RUN chmod 755 /usr/local/bin/start.sh
+#CMD /usr/local/bin/start.sh

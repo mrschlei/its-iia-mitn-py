@@ -32,3 +32,5 @@ c_rehash /etc/ssl/certs >/dev/null
 
 #/usr/local/bin/apache2-foreground
 #/usr/sbin/apachectl -f /etc/apache2/apache2.conf -k start
+
+gunicorn -c guniconf wsgi:application

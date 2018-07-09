@@ -13,7 +13,8 @@ RUN pip install -r requirements.txt
 #USER www-data
 RUN chmod g+r -R wsgi.py ./welcome
 
-RUN chown root:root /etc/ssl/private
+RUN chown root:root /etc/ssl/certs /etc/ssl/private
+RUN chmod -R g+rw /etc/ssl/certs 
 RUN chmod g+rwx /etc/ssl/private
 
 EXPOSE 8000

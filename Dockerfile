@@ -14,7 +14,7 @@ RUN pip install -r requirements.txt
 RUN chmod g+r -R wsgi.py ./welcome
 
 RUN chown root:root /etc/ssl/private
-RUN chmod g+x /etc/ssl/private
+RUN chmod g+rwx /etc/ssl/private
 
 EXPOSE 8000
 EXPOSE 8080

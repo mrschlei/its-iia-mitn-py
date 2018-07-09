@@ -17,4 +17,11 @@ EXPOSE 8000
 EXPOSE 8080
 EXPOSE 8443
 
+## Rehash command needs to be run before starting apache.
+c_rehash /etc/pki/tls/certs >/dev/null
+
+COPY start.sh /usr/local/bin/
+RUN chmod 755 /usr/local/bin/start.sh
+RUN /usr/local/bin/start.sh
+
 CMD ["gunicorn", "-c", "guniconf", "wsgi:application"]

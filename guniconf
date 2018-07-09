@@ -1,7 +1,6 @@
 # for deployments!
 
-#bind = '0.0.0.0:8000'
-bind = '0.0.0.0:8443'
+bind = '0.0.0.0:8000'
 workers = 3
 
 # log to stdout - handy for docker

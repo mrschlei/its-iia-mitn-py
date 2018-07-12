@@ -8,6 +8,8 @@ WORKDIR /app
 COPY . .
 
 RUN pip install -r requirements.txt
+RUN pip install wooey
+RUN wooify -p mitn
 
 #RUN chown -R www-data /app
 #USER www-data
